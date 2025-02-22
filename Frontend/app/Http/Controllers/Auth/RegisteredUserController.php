@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Country;
 
 class RegisteredUserController extends Controller
 {
@@ -19,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $countries=Country::get();
+        return view('auth.register',compact('countries'));
     }
 
     /**
@@ -29,22 +32,36 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        try{
+            $request->validate([
+                'first_name' => ['required', 'string', 'max:255'],
+                'last_name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
+                'phone_number' => ['required', 'string', 'max:10', 'regex:/^\d{10}$/'],
+                'terms_and_conditions' => ['required', 'accepted'],
+            ]);
+    
+            $user = User::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'country_code'=>$request->country_code,
+                'phone_number'=>$request->phone_number,
+                'terms_and_conditions'=>$request->terms_and_conditions,
+                'status'=>1,
+                'source_signup'=>'web',
+                'ip_address'=>'127.0.0.1:8000',
+                'role'=>'user'
+            ]);
+    
+            event(new Registered($user));
+    
+            return Redirect::route('signin')->with('success', 'User registered successfully!');
+        }catch(Exception $e){
+            Log::error('Registration Error: ' . $e->getMessage());
+           return Redirect::route('signup')->with('error', 'An error occurred. Please try again.');
+        }
+        
     }
 }

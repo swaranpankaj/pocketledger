@@ -1,0 +1,353 @@
+@media (min-width: 1400px) {
+   .container {
+      max-width: 1360px;
+   }
+}
+@media (max-width: 1399px) {
+   .signup-area-wrapper {
+      gap: 95px;
+   }
+   .signup-desc {
+      font-size: 18px;
+   }
+   .testimonial-desc {
+      font-size: 18px;
+      line-height: 26px;
+   }
+   .testimonial-slider-container {
+      width: 440px;
+   }
+   .sidebar {
+      width: 300px;
+   }
+   .dashboard-area.active {
+      padding-left: 300px;
+   }
+}
+
+@media (max-width: 1199px) {
+   .signup-area-wrapper {
+      gap: 80px;
+   }
+   .testimonial-desc {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 20px 0;
+   }
+   .testimonial-slider-container {
+      width: 390px;
+   }
+   .signup-desc {
+      font-size: 18px;
+      padding-right: 0;
+   }
+   .form-condition label {
+      font-size: 15px;
+   }
+   .header-area {
+      padding: 15px 20px;
+   }
+   .sidebar {
+      top: 70px;
+   }
+}
+
+
+@media (max-width: 991px) {
+   .signup-area-wrapper {
+      gap: 60px;
+      flex-direction: column;
+   }
+   .country-select {
+      width: 220px;
+   }
+   .testimonial-slider-container {
+      width: 100%;
+   }
+   .logo img {
+      max-width: 190px;
+   }
+   .confirmation-area {
+      padding-top: 80px;
+   }
+   .header-profle-wrapper {
+      gap: 15px;
+      margin-right: 24px;
+   }
+   .dashboard-info-blk {
+      padding: 20px 30px;
+      border-radius: 8px;
+   }
+   .sidebar {
+      top: 63px;
+   }
+   .dashboard-area.active {
+      padding-left: 0;
+   }
+   .overview-tabs-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+   }
+   .overview-tabs-container::-webkit-scrollbar {
+      display: none;
+   }
+   .fund-card {
+      padding: 10px 20px;
+   }
+   .fund-card-wrapper .row {
+      --bs-gutter-x: 10px;
+      --bs-gutter-y: 15px;
+   }
+   .account-table tr th {
+      font-size: 14px;
+   }
+}
+
+@media (max-width: 767px) {
+   .signup-area {
+      padding: 50px 0;
+   }
+   .logo img {
+      max-width: 150px;
+   }
+   .signup-desc {
+      font-size: 16px;
+   }
+   .form-input {
+      padding-bottom: 15px;
+   }
+   .form-condition {
+      margin: 10px 0 30px 0;
+   }
+   .login-form .form-btn-wrapper {
+      margin: 30px 0;
+   }
+   .confirmation-code {
+      padding-bottom: 30px;
+   }
+   .recieve-msg {
+      font-size: 18px;
+      margin-top: 20px;
+   }
+   .header-profle-wrapper {
+      margin-right: 10px;
+   }
+   .profile-desc {
+      display: none;
+   }
+   .header-profle-wrapper .profile-pic {
+      width: 40px;
+      height: 40px;
+   }
+   .profile-logout img {
+      width: 18px;
+   }
+   .dashboard-info-blk {
+      padding: 20px;
+      margin-bottom: 20px;
+   }
+   .checklist h4 {
+      font-size: 18px;
+   }
+   .checklist h5 {
+      font-size: 16px;
+   }
+   .account-setup-steps {
+      gap: 15px;
+   }
+   .account-setup-steps li a {
+      font-size: 16px !important;
+   }
+   .sidebar {
+      top: 55px;
+   }
+
+   .onboard-step-one .modal-body {
+      padding: 30px 20px;
+   }
+   .modal-title-icon {
+      max-width: 60px;
+   }
+   .modal-title {
+      font-size: 24px;
+   }
+   .modal-desc {
+      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 20px;
+   }
+   .mymodal .modal-dialog {
+      width: calc(100% - 30px);
+      margin-left: auto;
+      margin-right: auto;
+   }
+   .mymodal .modal-body {
+      padding: 30px 20px;
+   }
+   .mymodal ul {
+      padding-left: 20px;
+      padding-bottom: 10px;
+   }
+   .checkbox-style label {
+      padding: 8px 12px;
+      gap: 8px;
+   }
+   .property-wrapper {
+      padding-top: 40px;
+   }
+   .personal-info-wrapper:last-child {
+      margin-bottom: 0;
+   }
+   .success-msg-box {
+      padding: 12px 16px 20px 15px;
+      margin-bottom: 20px;
+   }
+   .success-msg-title {
+      font-size: 16px;
+   }
+   .success-msg-title i {
+      font-size: 20px;
+   }
+   .property-image img {
+      width: 100%;
+   }
+   .steps-wrapper .single-step span {
+      width: 24px;
+      height: 24px;
+   }
+   .steps-wrapper .single-step h6 {
+      font-size: 12px;
+   }
+   .personal-info-container-top {
+      margin-bottom: 50px;
+   }
+   .property-info-blk-wrapper {
+      gap: 20px;
+      flex-wrap: wrap;
+   }
+   .additional-note p {
+      font-size: 14px;
+   }
+   .account-table tr th {
+      padding: 10px 15px 6px;
+   }
+   .account-table tr td {
+      font-size: 12px;
+      padding: 10px 15px 6px;
+   }
+   .account-table-wrapper {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+   }
+   .account-table-wrapper::-webkit-scrollbar {
+      display: none;
+   }
+   .account-table {
+      min-width: 560px;
+   }
+   .credit-card .account-table {
+      min-width: 620px;
+   }
+   .trading-account .account-table {
+      min-width: 770px;
+   }
+   .select-platform-wrapper {
+      gap: 15px;
+      padding-right: 0;
+   }
+   .login-modal .modal-body {
+      padding: 60px 20px;
+   }
+   .steps-wrapper .single-step {
+      min-width: auto;
+   }
+   .step-divider {
+      margin-top: 10px;
+   }
+   .collapse-btn {
+      padding: 10px 14px;
+   }
+   .collapse-content-wrapper {
+      padding: 0 14px 14px;
+   }
+   .single-assets {
+      padding: 10px;
+   }
+   .pdf {
+      height: 420px;
+      margin-bottom: 50px;
+   }
+   .plan-features-list li {
+      font-size: 14px;
+   }
+}
+
+@media (max-width: 575px) {
+   .form-input-wrapper {
+      gap: 0;
+   }
+   .country-select {
+      width: 100%;
+      margin-right: 0;
+   }
+   .footer-copyright {
+      font-size: 13px;
+      flex-wrap: wrap;
+   }
+   .sidebar-toggle-btn .btn-text {
+      display: none;
+   }
+   .sidebar-toggle-btn .btn-icon {
+      font-size: 20px;
+      line-height: 1;
+   }
+   .investment-select {
+      max-width: 100%;
+   }
+   .search-input {
+      max-width: 100%;
+   }
+   .single-platform label {
+      height: 80px;
+   }
+   .single-platform label img {
+      max-height: 40px;
+   }
+   .login-modal .login-form {
+      padding: 30px 25px 40px;
+   }
+   .cas-generate-desc {
+      font-size: 16px;
+   }
+   .nominee-wrapper .theme-btn {
+      font-size: 12px;
+   }
+   .review-info {
+      padding: 16px;
+   }
+   .modal-header, .modal-footer {
+      padding: 16px 20px;
+   }
+   .share-input {
+      width: 100%;
+   }
+   .modal-header-title {
+      font-size: 16px;
+   }
+   .pdf {
+      height: 300px;
+   }
+   .payment-form .input-field {
+      font-size: 14px;
+      height: 40px;
+   }
+   .payment-option-tab .nav-link {
+      padding: 8px;
+   }
+   .payment-option-tab .nav-link h6 {
+      font-size: 12px;
+   }
+   .pay-btn {
+      padding: 10px;
+   }
+}

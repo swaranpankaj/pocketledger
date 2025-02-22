@@ -1,47 +1,61 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.app')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+@section('content')
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+      <!-- signup area start  -->
+      <section class="signup-area">
+         <div class="container">
+            <div class="signup-area-wrapper d-flex justify-content-between align-items-center">
+               <div class="signup-main">
+                  <div class="signup-top">
+                     <p class="subtitle text-end">Don't have an account? <a href="{{ route('signup') }}" class="d-inline-block text-decoration-underline">Sign Up</a></p>
+                     <h1 class="title fw-bold mb-3">PocketLedger simplifies your life.</h1>
+                     <p class="signup-desc pe-0">Bring all aspects of your life together in one place. With PocketLedger, you can organize, protect, and pass on your legacy effortlessly.</p>
+                  </div>
+                  @if ($errors->any())
+                  <div class="alert alert-danger">
+                     <ul>
+                           @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                           @endforeach
+                     </ul>
+                  </div>
+               @endif
+                  <form method="POST" action="{{ route('signin') }}" class="signup-form login-form">
+                  @csrf
+                     <div class="form-input w-100">
+                        <label for="email" class="d-inline-block fw-bold mb-1">Email address*</label>
+                        <input type="email" id="email" class="input-field w-100" name="email" required>
+                     </div>
+                     <div class="form-input w-100 mb-0">
+                        <label for="password" class="d-inline-block fw-bold mb-1">Password*</label>
+                        <input type="password" id="password" class="input-field w-100" name="password" required>
+                     </div>
+                     <div class="form-btn-wrapper d-flex align-items-center">
+                        <button type="submit" class="form-btn signup-btn theme-btn big d-inline-block fw-bold">Sign up</button>
+                        <button type="reset" class="form-btn cancel-btn theme-btn big d-inline-block fw-bold">Cancel</button>
+                     </div>
+                     <a href="#" class="forgot-pass text-decoration-underline">Forgot your password</a>
+                  </form>
+               </div>
+               <div class="testimonial-slider-container flex-shrink-0">
+                  <div class="testimonial-slider swiper">
+                     <div class="testimonial-slider-wrapper swiper-wrapper">
+                        <div class="testimonial swiper-slide">
+                           <img class="profile-pic object-fit-cover" src="assets/img/profile-pic.png" alt="profile-pic">
+                           <p class="testimonial-desc">PocketLedger's Will Services are truly top-notch. Their attention to detail and professionalism are unmatched. I highly recommend Apple for all your will planning needs.</p>
+                           <h6 class="profile-name fw-bold mb-0">- Emily Johnson</h6>
+                        </div>
+                        <div class="testimonial swiper-slide">
+                           <img class="profile-pic object-fit-cover" src="assets/img/profile-pic.png" alt="profile-pic">
+                           <p class="testimonial-desc">PocketLedger's Will Services are truly top-notch. Their attention to detail and professionalism are unmatched. I highly recommend Apple for all your will planning needs.</p>
+                           <h6 class="profile-name fw-bold mb-0">- Emily Johnson</h6>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>   
+         </div>
+      </section>
+      <!-- signup area end  -->
+    @endsection

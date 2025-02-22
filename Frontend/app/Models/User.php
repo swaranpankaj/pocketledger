@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name' ,
         'email',
         'password',
+        'country_code',
+        'phone_number',
+        'terms_and_conditions',
+        'ip_address',
+        'source_signup',
+        'status'
     ];
 
     /**
@@ -45,4 +52,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     // If you're using password hashing:
+    //  public function setPasswordAttribute($password)
+    //  {
+    //      $this->attributes['password'] = Hash::make($password);
+    //  }
 }
