@@ -8,7 +8,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomePropertyController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PersonalInfoIDController;
-
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\AccountSetupController;
 
 Route::get('/', function () {
     return Auth::check() ? redirect('/dashboard') : view('auth.login');
@@ -19,14 +21,29 @@ Route::get('/signup', [RegisteredUserController::class, 'create'])->name('signup
 Route::post('/create', [RegisteredUserController::class, 'store'])->name('create');
 
 
+// Show the email verification prompt if user is not verified
+Route::get('/verify-email', [VerifyEmailController::class, 'showVerificationPage'])->middleware(['EnsureEmailIsNotVerified'])->name('verification.notice');
+
+// Handle email verification via link
+Route::post('/verify-email/{id}/{hash}', [VerifyEmailController::class,'verify'])->name('verification.verify');
+
+// Resend verification email
+Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    ->middleware(['throttle:6,1'])
+    ->name('verification.send'); 
+
 Route::get('/signin', [AuthenticatedSessionController::class, 'create'])->name('signin'); 
 Route::post('/signin', [AuthenticatedSessionController::class, 'store'])->name('signin'); 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
 
-Route::middleware(['auth','user'])->group(function () {
-    //dashboard routes
+Route::middleware(['auth','user','verified'])->group(function () {
+ 
+    Route::get('/setup-account', [AccountSetupController::class, 'showSetupAccount'])->name('setup-account');
+    Route::post('/account/complete', [AccountSetupController::class, 'completeAccountSetup'])->name('account.complete');
+
+   //dashboard routes
     Route::get('/dashboard', [DashboardController::class, 'create'])->name('dashboard');
 
     //home property routes

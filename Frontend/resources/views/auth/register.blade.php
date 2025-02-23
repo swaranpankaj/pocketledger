@@ -42,7 +42,7 @@
                            @if (isset($countries) && $countries->isNotEmpty())
                            <select type="text" id="select-country" class="input-field w-100" name="country_code">
                            @foreach ($countries as $index => $country)
-                              <option value="{{$country->id}}">{{$country->iso3}}</option>
+                              <option value="{{$country->phonecode}}">{{$country->code}}</option>
                               @endforeach  
                            </select>
                            @endif

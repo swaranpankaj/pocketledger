@@ -21,4 +21,5 @@ class DashboardController extends Controller
         return view('dashboard', compact('questions','pageStep1','pageAllData'));
 
     }
+    
 }    
